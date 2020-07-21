@@ -26,8 +26,6 @@ let currentNumber = '0'
 const inputNumber = (number) => {
     if (currentNumber === '0') {
         currentNumber = number
-    } else if (currentNumber != 0) {
-        currentNumber = number
     } else {
         currentNumber += number
     }
