@@ -63,6 +63,7 @@ equalSign.addEventListener('click', () => {
     if (calculationOperator != '') {
         calculate()
         updateScreen(currentNumber)
+        console.log(typeof currentNumber)
     }
 })
 
@@ -127,7 +128,10 @@ decimal.addEventListener('click', (event) => {
 })
 
 inputDecimal = (dot) => {
-    if(currentNumber.includes('.')) {
+    if (typeof currentNumber != "string") {
+        currentNumber = currentNumber.toString()
+    }
+    if (currentNumber.includes('.')) {
         return
     } else {
         currentNumber += dot
