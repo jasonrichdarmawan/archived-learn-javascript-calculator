@@ -65,7 +65,10 @@ equalSign.addEventListener('click', () => {
     if (calculationOperator != '') {
         calculate()
         updateScreen(currentNumber)
-        console.log(typeof currentNumber)
+    }
+    if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
+        currentNumber = eval(currentNumber)
+        updateScreen(currentNumber)
     }
 })
 
@@ -154,3 +157,16 @@ numbers.forEach((number) => {
 const updateScreen = (number) => {
     calculatorScreen.value = number
 }
+
+calculatorScreen.addEventListener("change", (event) => {
+    currentNumber = event.target.value
+})
+
+calculatorScreen.addEventListener("keypress", (event) => {
+    if (event.key === 'Enter') {
+        if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
+            currentNumber = eval(currentNumber)
+            updateScreen(currentNumber)
+        }
+    }
+})
