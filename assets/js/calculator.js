@@ -156,15 +156,13 @@ const updateScreen = (number) => {
     calculatorScreen.value = number
 }
 
-calculatorScreen.addEventListener("change", (event) => {
-    currentNumber = event.target.value
-})
-
-calculatorScreen.addEventListener("keypress", (event) => {
+calculatorScreen.addEventListener("keyup", (event) => {
     if (event.key === 'Enter') {
         if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
             currentNumber = eval(currentNumber)
             updateScreen(currentNumber)
         }
+    } else {
+        currentNumber = event.target.value
     }
 })
