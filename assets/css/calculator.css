@@ -1,8 +1,7 @@
 .calculator {
     text-align: center;
     margin: 0 auto;
-    padding-top: 200px;
-    width: 400px;
+    clear: both;
 }
 
 .calculator-screen {
@@ -43,7 +42,7 @@ button:hover {
 }
 
 .operaetor, .equal-sign {
-    background-color: onrage;
+    background-color: orange;
 }
 .operator:hover, .equal-sign:hover {
     background-color: darkorange;
