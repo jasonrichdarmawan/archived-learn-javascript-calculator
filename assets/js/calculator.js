@@ -47,7 +47,7 @@ const inputOperator = (operator) => {
     if (calculationOperator === '') {
         prevNumber = currentNumber
     }
-    else if (calculationOperator != '') {
+    else if (calculationOperator != '' && currentNumber != '0') {
         calculate()
         updateScreen(currentNumber)
         prevNumber = currentNumber
