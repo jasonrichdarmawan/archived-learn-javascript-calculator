@@ -15,24 +15,6 @@ number + operator + number
 currentNumber is the one displayed on the UI.
 */
 
-// business logic: main
-
-const numbers = document.querySelectorAll(".number")
-
-let prevNumber = ''
-let calculationOperator = ''
-let currentNumber = '0'
-
-const inputNumber = (number) => {
-    if (currentNumber === '0') {
-        currentNumber = number
-    } else if (typeof currentNumber === "number") {
-        currentNumber = number
-    } else {
-        currentNumber += number
-    }
-}
-
 // business logic: operator
 
 const operators = document.querySelectorAll(".operator")
@@ -62,7 +44,7 @@ const inputOperator = (operator) => {
 const equalSign = document.querySelector('.equal-sign')
 
 equalSign.addEventListener('click', () => {
-    if (calculationOperator != '') {
+    if (calculationOperator != '' && currentNumber != '0') {
         calculate()
         updateScreen(currentNumber)
     }
@@ -143,9 +125,9 @@ inputDecimal = (dot) => {
     }
 }
 
-// main
+// business logic: main
 
-const calculatorScreen = document.querySelector('.calculator-screen')
+const numbers = document.querySelectorAll(".number")
 
 numbers.forEach((number) => {
     number.addEventListener("click", (event) => {
@@ -153,6 +135,22 @@ numbers.forEach((number) => {
         updateScreen(currentNumber)
     })
 })
+
+let prevNumber = ''
+let calculationOperator = ''
+let currentNumber = '0'
+
+const inputNumber = (number) => {
+    if (currentNumber === '0') {
+        currentNumber = number
+    } else if (typeof currentNumber === "number") {
+        currentNumber = number
+    } else {
+        currentNumber += number
+    }
+}
+
+const calculatorScreen = document.querySelector('.calculator-screen')
 
 const updateScreen = (number) => {
     calculatorScreen.value = number
