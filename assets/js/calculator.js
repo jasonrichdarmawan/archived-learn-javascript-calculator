@@ -48,14 +48,7 @@ equalSign.addEventListener('click', () => {
         calculate()
         updateScreen(currentNumber)
     }
-    if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
-        currentNumber = eval(currentNumber)
-        updateScreen(currentNumber)
-    } else if (currentNumber.includes("x")) {
-        currentNumber = currentNumber.replace("x", "*")
-        currentNumber = eval(currentNumber)
-        updateScreen(currentNumber)
-    }
+    calculatefromScreen()
 })
 
 const calculate = () => {
@@ -78,6 +71,17 @@ const calculate = () => {
     }
     currentNumber = result
     calculationOperator = ''
+}
+
+const calculatefromScreen = () => {
+    if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
+        currentNumber = eval(currentNumber)
+        updateScreen(currentNumber)
+    } else if (currentNumber.includes("x")) {
+        currentNumber = currentNumber.replace("x", "*")
+        currentNumber = eval(currentNumber)
+        updateScreen(currentNumber)
+    }
 }
 
 // business logic: percentage
@@ -162,14 +166,7 @@ const updateScreen = (number) => {
 
 calculatorScreen.addEventListener("keyup", (event) => {
     if (event.key === 'Enter') {
-        if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
-            currentNumber = eval(currentNumber)
-            updateScreen(currentNumber)
-        } else if (currentNumber.includes("x")) {
-            currentNumber = currentNumber.replace("x", "*")
-            currentNumber = eval(currentNumber)
-            updateScreen(currentNumber)
-        }
+        calculatefromScreen()
     } else {
         currentNumber = event.target.value
     }
