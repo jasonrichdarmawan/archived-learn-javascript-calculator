@@ -51,6 +51,10 @@ equalSign.addEventListener('click', () => {
     if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
         currentNumber = eval(currentNumber)
         updateScreen(currentNumber)
+    } else if (currentNumber.includes("x")) {
+        currentNumber = currentNumber.replace("x", "*")
+        currentNumber = eval(currentNumber)
+        updateScreen(currentNumber)
     }
 })
 
@@ -159,6 +163,10 @@ const updateScreen = (number) => {
 calculatorScreen.addEventListener("keyup", (event) => {
     if (event.key === 'Enter') {
         if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
+            currentNumber = eval(currentNumber)
+            updateScreen(currentNumber)
+        } else if (currentNumber.includes("x")) {
+            currentNumber = currentNumber.replace("x", "*")
             currentNumber = eval(currentNumber)
             updateScreen(currentNumber)
         }
