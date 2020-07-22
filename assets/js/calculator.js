@@ -82,7 +82,6 @@ const calculatefromScreen = () => {
 
         currentNumber = currentNumber.replace(/x/g, "*")
         currentNumber = currentNumber.replace(/%/g, "/100")
-        console.log(currentNumber)
         currentNumber = eval(currentNumber)
         updateScreen(currentNumber)
     }
