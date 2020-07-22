@@ -74,10 +74,7 @@ const calculate = () => {
 }
 
 const calculatefromScreen = () => {
-    if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+')) {
-        currentNumber = eval(currentNumber)
-        updateScreen(currentNumber)
-    } else if (currentNumber.includes("x") || currentNumber.includes("%")) {
+    if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+') || currentNumber.includes("x") || currentNumber.includes("%")) {
         currentNumber = currentNumber.replace("x", "*")
         currentNumber = currentNumber.replace("%", "/100")
         currentNumber = eval(currentNumber)
