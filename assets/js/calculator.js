@@ -75,8 +75,12 @@ const calculate = () => {
 
 const calculatefromScreen = () => {
     if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+') || currentNumber.includes("x") || currentNumber.includes("%")) {
-        currentNumber = currentNumber.replace("x", "*")
-        currentNumber = currentNumber.replace("%", "/100")
+        /// sanitize the string other than digits, /, *, -, +, x, %, ()
+        currentNumber = currentNumber.replace(/[^\d/*-+x%()]/g, '')
+        console.log(currentNumber)
+        currentNumber = currentNumber.replace(/x/g, "*")
+        currentNumber = currentNumber.replace(/%/g, "/100")
+        console.log(currentNumber)
         currentNumber = eval(currentNumber)
         updateScreen(currentNumber)
     }
