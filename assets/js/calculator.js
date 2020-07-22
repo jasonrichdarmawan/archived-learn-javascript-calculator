@@ -26,6 +26,7 @@ operators.forEach((operator) => {
 })
 
 const inputOperator = (operator) => {
+    calculatefromScreen()
     if (calculationOperator === '') {
         prevNumber = currentNumber
     }
@@ -47,8 +48,9 @@ equalSign.addEventListener('click', () => {
     if (calculationOperator != '' && currentNumber != '0') {
         calculate()
         updateScreen(currentNumber)
+    } else {
+        calculatefromScreen()
     }
-    calculatefromScreen()
 })
 
 const calculate = () => {
