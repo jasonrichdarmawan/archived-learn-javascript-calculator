@@ -1,12 +1,16 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 .calculator {
     text-align: center;
-    margin: 0 auto;
-    clear: both;
+    height: inherit;
 }
 
 .calculator-screen {
     width: 100%;
-    height: 100px;
+    height: 20%;
     background-color: #252525;
     color: #fff;
     text-align: right;
@@ -18,14 +22,15 @@
 
 .calculator-keys {
     width: 100%;
+    height: 80%;
 }
 
 .row {
     display: flex;
+    height: 20%;
 }
 
 button {
-    height: 80px;
     background-color: gray;
     border: 1px solid black;
     font-size: 32px;
