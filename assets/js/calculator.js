@@ -21,8 +21,13 @@ const operators = document.querySelectorAll(".operator")
 
 operators.forEach((operator) => {
     operator.addEventListener("click", (event) => {
-        currentNumber += event.target.value
-        updateScreen(currentNumber)
+        lastValue = currentNumber.split('').pop()
+        if (lastValue.includes('+') || lastValue.includes('-') || lastValue.includes('*') || lastValue.includes('/') || lastValue.includes('.')) {
+            return
+        } else {
+            currentNumber += event.target.value
+            updateScreen(currentNumber)
+        }
     })
 })
 
