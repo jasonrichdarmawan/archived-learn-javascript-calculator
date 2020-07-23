@@ -44,15 +44,6 @@ const calculatefromScreen = () => {
     updateScreen(currentNumber)
 }
 
-// business logic: percentage
-
-const percentage = document.querySelector('.percentage')
-
-percentage.addEventListener('click', (event) => {
-    currentNumber += event.target.value
-    updateScreen(currentNumber)
-})
-
 // business logic: all-clear
 
 const clearBtn = document.querySelector('.all-clear')
