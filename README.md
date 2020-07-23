@@ -1,6 +1,7 @@
 **How to create calculator with JavaScript?**
 
 **First**, define the UI or the features of the calculator, whichever comes first:
+
   Simple calculation such as addition (a+b=c), substraction (a-b=c), division (a/b = c), multiplication (a*b=c or axb=c), percentage (a% = a/100), digits.
 
 **Second**, breakdown the question to:
@@ -23,3 +24,5 @@
     1. The number on the calculator screen changes everytime you pressed a button. Therefore, we need to differentiate the variables to `currentNumber` and `prevNumber`. The `currentNumber` variable is used to display the number on the calculator screen.
     2. The `currentNumber` value changes everytime you pressed a `number` button.
     3. The `prevNumber` inherit the `currentNumber` value after you pressed a `operator` button and the `currentNumber` value is set to 0.
+    
+**You can read the pdf from the README folder if you are a visual learner.**
