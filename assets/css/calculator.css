@@ -46,7 +46,7 @@ button:hover {
     width: 50%;
 }
 
-.operaetor, .equal-sign {
+.equal-sign {
     background-color: orange;
 }
 .operator:hover, .equal-sign:hover {
