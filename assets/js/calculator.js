@@ -57,23 +57,6 @@ const clearAll = () => {
     currentNumber = '0'
 }
 
-// business logic: decimal
-
-const decimal = document.querySelector('.decimal')
-
-decimal.addEventListener('click', (event) => {
-    inputDecimal(event.target.value)
-    updateScreen(currentNumber)
-})
-
-inputDecimal = (dot) => {
-    if (currentNumber.includes('.')) {
-        return
-    } else {
-        currentNumber += dot
-    }
-}
-
 // business logic: main
 
 const numbers = document.querySelectorAll(".number")
