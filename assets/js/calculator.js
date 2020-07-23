@@ -21,70 +21,27 @@ const operators = document.querySelectorAll(".operator")
 
 operators.forEach((operator) => {
     operator.addEventListener("click", (event) => {
-        inputOperator(event.target.value)
+        currentNumber += event.target.value
+        updateScreen(currentNumber)
     })
 })
-
-const inputOperator = (operator) => {
-    calculatefromScreen()
-    if (calculationOperator === '') {
-        prevNumber = currentNumber
-    }
-    else if (calculationOperator != '' && currentNumber != '0') {
-        calculate()
-        updateScreen(currentNumber)
-        prevNumber = currentNumber
-        calculationOperator = ''
-    }
-    calculationOperator = operator
-    currentNumber = '0'
-}
 
 // business logic: equal-sign -> calculate
 
 const equalSign = document.querySelector('.equal-sign')
 
 equalSign.addEventListener('click', () => {
-    if (calculationOperator != '' && currentNumber != '0') {
-        calculate()
-        updateScreen(currentNumber)
-    } else {
-        calculatefromScreen()
-    }
+    calculatefromScreen()
 })
 
-const calculate = () => {
-    let result = ''
-    switch(calculationOperator) {
-        case "+":
-            result = parseFloat(prevNumber) + parseFloat(currentNumber)
-            break
-        case "-":
-            result = prevNumber - currentNumber
-            break
-        case "*":
-            result = prevNumber * currentNumber
-            break
-        case "/":
-            result = prevNumber / currentNumber
-            break
-        default:
-            break
-    }
-    currentNumber = result
-    calculationOperator = ''
-}
-
 const calculatefromScreen = () => {
-    if (currentNumber.includes("/") || currentNumber.includes("*") || currentNumber.includes("-") || currentNumber.includes('+') || currentNumber.includes("x") || currentNumber.includes("%")) {
-        /// sanitize the string other than digits, /, *, -, +, x, %, ()
-        currentNumber = currentNumber.replace(/[^\d/*+x%()-]/g, '')
+    /// sanitize the string other than digits, /, *, -, +, x, %, (), decimal
+    currentNumber = currentNumber.replace(/[^\d/*+x%()-.]/g, '')
 
-        currentNumber = currentNumber.replace(/x/g, "*")
-        currentNumber = currentNumber.replace(/%/g, "/100")
-        currentNumber = eval(currentNumber)
-        updateScreen(currentNumber)
-    }
+    currentNumber = currentNumber.replace(/x/g, "*")
+    currentNumber = currentNumber.replace(/%/g, "/100")
+    currentNumber = eval(currentNumber)
+    updateScreen(currentNumber)
 }
 
 // business logic: percentage
@@ -92,14 +49,9 @@ const calculatefromScreen = () => {
 const percentage = document.querySelector('.percentage')
 
 percentage.addEventListener('click', (event) => {
-    calculatePercentage()
+    currentNumber += event.target.value
     updateScreen(currentNumber)
 })
-
-calculatePercentage = (percentage) => {
-    let result = ''
-    currentNumber /= 100
-}
 
 // business logic: all-clear
 
@@ -111,8 +63,6 @@ clearBtn.addEventListener('click', () => {
 })
 
 const clearAll = () => {
-    prevNumber = ''
-    calculationOperator = ''
     currentNumber = '0'
 }
 
@@ -126,9 +76,6 @@ decimal.addEventListener('click', (event) => {
 })
 
 inputDecimal = (dot) => {
-    if (typeof currentNumber != "string") {
-        currentNumber = currentNumber.toString()
-    }
     if (currentNumber.includes('.')) {
         return
     } else {
@@ -147,8 +94,6 @@ numbers.forEach((number) => {
     })
 })
 
-let prevNumber = ''
-let calculationOperator = ''
 let currentNumber = '0'
 
 const inputNumber = (number) => {
