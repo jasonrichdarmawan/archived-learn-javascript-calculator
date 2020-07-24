@@ -38,17 +38,19 @@ button {
     width: 25%;
     outline: none;
 }
+
 button:hover {
     background-color: darkgrey;
 }
 
-.all-clear, .zero-btn {
+.zero-btn {
     width: 50%;
 }
 
 .equal-sign {
     background-color: orange;
 }
+
 .operator:hover, .equal-sign:hover {
     background-color: darkorange;
 }

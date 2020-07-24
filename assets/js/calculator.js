@@ -67,6 +67,23 @@ const clearAll = () => {
     currentNumber = '0'
 }
 
+// business logic: backspace
+
+const bsBtn = document.querySelector('.backspace')
+
+bsBtn.addEventListener('click', () => {
+    backSpace()
+    updateScreen(currentNumber)
+})
+
+const backSpace = () => {
+    if (currentNumber.length === 1) {
+        clearAll()
+    } else {
+        currentNumber = currentNumber.substring(0,currentNumber.length - 1)
+    }
+}
+
 // business logic: main
 
 const numbers = document.querySelectorAll(".number")
