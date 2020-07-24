@@ -22,7 +22,7 @@ const operators = document.querySelectorAll(".operator")
 operators.forEach((operator) => {
     operator.addEventListener("click", (event) => {
         lastValue = currentNumber.split('').pop()
-        if (lastValue.includes('+') || lastValue.includes('-') || lastValue.includes('*') || lastValue.includes('/') || lastValue.includes('.') || lastValue.includes('%')) {
+        if (lastValue.includes('+') || lastValue.includes('-') || lastValue.includes('*') || lastValue.includes('/') || lastValue.includes('.')) {
             return
         } else {
             currentNumber += event.target.value
@@ -43,10 +43,15 @@ const calculatefromScreen = () => {
     /// sanitize the string other than digits, /, *, -, +, x, %, (), decimal
     currentNumber = currentNumber.replace(/[^\d/*+x%()-.]/g, '')
 
-    currentNumber = currentNumber.replace(/x/g, "*")
-    currentNumber = currentNumber.replace(/%/g, "/100")
-    currentNumber = eval(currentNumber)
-    updateScreen(currentNumber)
+    lastValue = currentNumber.split('').pop()
+    if (lastValue.includes('+') || lastValue.includes('-') || lastValue.includes('*') || lastValue.includes('/') || lastValue.includes('.')) {
+        return
+    } else {
+        currentNumber = currentNumber.replace(/x/g, "*")
+        currentNumber = currentNumber.replace(/%/g, "/100")
+        currentNumber = eval(currentNumber)
+        updateScreen(currentNumber)
+    }
 }
 
 // business logic: all-clear
