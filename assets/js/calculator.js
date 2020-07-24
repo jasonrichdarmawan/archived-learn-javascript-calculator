@@ -77,7 +77,7 @@ bsBtn.addEventListener('click', () => {
 })
 
 const backSpace = () => {
-    if (currentNumber.length === 1) {
+    if (currentNumber.length === 1 || typeof currentNumber === "number") {
         clearAll()
     } else {
         currentNumber = currentNumber.substring(0,currentNumber.length - 1)
